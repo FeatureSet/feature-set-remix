@@ -6,10 +6,9 @@ on:
 env:
   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
   FLY_REGION: sjc
-  FLY_ORG: "FeatureSet"
 
 jobs:
-  staging_app:
+  review_app:
     runs-on: ubuntu-latest
     concurrency:
       group: pr-${{ github.event.number }}
@@ -22,8 +21,8 @@ jobs:
         id: deploy
         uses: superfly/fly-pr-review-apps@1.0.0
         with:
-          name: pr-${{ github.event.number }}-review
-          org: FeatureSet
+          name: pr-${{ github.event.number }}-reviewapp
+          org: featureset
       - name: Clean up review app
         uses: strumwolf/delete-deployment-environment@v2
         if: ${{ github.event.action == 'closed' }}
