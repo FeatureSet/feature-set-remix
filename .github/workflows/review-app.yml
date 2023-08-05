@@ -6,7 +6,7 @@ on:
 env:
   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
   FLY_REGION: sjc
-  FLY_ORG: personal
+  FLY_ORG: "FeatureSet"
 
 jobs:
   staging_app:
@@ -21,6 +21,8 @@ jobs:
       - name: Deploy Review App
         id: deploy
         uses: superfly/fly-pr-review-apps@1.0.0
+        with:
+          name:
       - name: Clean up review app
         uses: strumwolf/delete-deployment-environment@v2
         if: ${{ github.event.action == 'closed' }}

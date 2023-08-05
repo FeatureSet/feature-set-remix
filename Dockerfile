@@ -1,10 +1,10 @@
 # Base node image.
-FROM node:16-bullseye-slim as base
+FROM node:18-bullseye-slim as base
 
 # Set global environment variables.
 ENV PORT="8080"
 ENV NODE_ENV="production"
-ENV DATABASE_URL=file:/data/sqlite.db 
+ENV DATABASE_URL=file:/data/sqlite.db
 
 # Install openssl for Prisma.
 RUN apt-get update && apt-get install -y sqlite3
@@ -42,7 +42,7 @@ RUN npm run build
 FROM base
 
 # Add shortcut for connecting to database CLI.
-RUN echo "#!/bin/sh\nset -x\nsqlite3 \$DATABASE_URL" > /usr/local/bin/database-cli && chmod +x /usr/local/bin/database-cli 
+RUN echo "#!/bin/sh\nset -x\nsqlite3 \$DATABASE_URL" > /usr/local/bin/database-cli && chmod +x /usr/local/bin/database-cli
 
 WORKDIR /myapp
 
