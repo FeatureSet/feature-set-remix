@@ -1,13 +1,10 @@
 import type { User } from '@prisma/client'
-
 import { Authenticator } from 'remix-auth'
 import { OTPStrategy } from 'remix-auth-otp'
-import { SocialsProvider, GoogleStrategy } from 'remix-auth-socials'
+import { SocialsProvider, GoogleStrategy, GitHubStrategy } from 'remix-auth-socials'
 import { sessionStorage } from '~/services/auth/session.server'
-
 import { getUserByEmail } from '~/models/user/get-user'
 import { createUser } from '~/models/user/create-user'
-
 import { db } from '~/utils/db'
 import { HOST_URL } from '~/utils/http'
 import { sendEmail } from '~/services/email/config.server'
@@ -44,6 +41,8 @@ authenticator.use(
     },
   ),
 )
+
+authenticator.use(new GitHubStrategy({}))
 
 /**
  * One Time Password - Strategy.
