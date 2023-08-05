@@ -1,6 +1,6 @@
 {
-  "name": "stripe-stack-dev",
-  "author": "https://github.com/dev-xo",
+  "name": "feature-set-remix",
+  "author": "https://github.com/feature-set",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -25,6 +25,7 @@
     "autoprefixer": "^10.4.14",
     "dayjs": "^1.11.9",
     "isbot": "^3.6.12",
+    "preevy": "^0.0.48",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remix-auth": "^3.5.0",
@@ -35,6 +36,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.36.1",
+    "@react-email/components": "^0.0.7",
     "@remix-run/dev": "^1.18.1",
     "@remix-run/eslint-config": "^1.18.1",
     "@types/eslint": "^8.44.0",

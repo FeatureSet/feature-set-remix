@@ -1,4 +1,5 @@
-app = "stripe-stack-dev"
+app = "featureset"
+primary_region = "sjc"
 
 kill_signal = "SIGINT"
 kill_timeout = 5
@@ -35,18 +36,17 @@ processes = []
     port = 443
 
   [[services.tcp_checks]]
-    grace_period = "1s"
-    interval = "15s"
+    grace_period = "3s"
+    interval = "90s"
     restart_limit = 0
     timeout = "2s"
 
   [[services.http_checks]]
     grace_period = "5s"
-    interval = "30s"
+    interval = "90s"
     method = "get"
     path = "/api/healthcheck"
     protocol = "http"
     timeout = "2s"
     tls_skip_verify = false
     [services.http_checks.headers]
-    
