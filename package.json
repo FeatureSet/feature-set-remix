@@ -25,7 +25,6 @@
     "autoprefixer": "^10.4.14",
     "dayjs": "^1.11.9",
     "isbot": "^3.6.12",
-    "preevy": "^0.0.48",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remix-auth": "^3.5.0",
