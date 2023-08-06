@@ -15,7 +15,8 @@
     "test:e2e:install": "npx playwright install chromium --with-deps",
     "pretest:e2e:run": "npm run build",
     "validate": "npm run lint && npm run typecheck && npm run test:e2e:run",
-    "seed:build": "tsc --project ./tsconfig.seed.json && tsc-alias -p ./tsconfig.seed.json"
+    "seed:build": "tsc --project ./tsconfig.seed.json && tsc-alias -p ./tsconfig.seed.json",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^5.1.1",
